@@ -1,18 +1,24 @@
-import Link from 'next/link'
+import { GetServerSideProps } from "next";
 
-export default function Home() {
-  return (
-    <ul>
-      <li>
-        <Link href="/a" as="/a">
-          <a>a</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/b" as="/b">
-          <a>b</a>
-        </Link>
-      </li>
-    </ul>
-  )
+interface Props {
+  data: number;
 }
+
+export default function Home({ data }: Props) {
+  return (
+    <div>
+      <h1>Hello world {data}</h1>
+    </div>
+  );
+}
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  // simulate an error in SSR
+  throw new Error("Error!");
+
+  return {
+    props: {
+      data: Math.random(),
+    },
+  };
+};
