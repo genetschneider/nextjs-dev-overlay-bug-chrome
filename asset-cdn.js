@@ -4,8 +4,8 @@ const httpProxy = require('http-proxy');
 const client = 'http://localhost:3000';
 const proxy = httpProxy.createProxyServer({
 	target: client,
+	// allow websocket proxying
 	ws: true,
-	xfwd: true,
 });
 
 proxy.on('proxyReq', (_, req) => {
