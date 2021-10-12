@@ -2,6 +2,9 @@
 
 This example repository shows how the dev error overlay is not workign in Chrome when using a custom assetPrefix in next.config.js.
 
+# Solved
+[Solved](https://github.com/vercel/next.js/issues/29290#issuecomment-940882209)
+
 ## Running the example
 - `node asset-cdn.js` // starts the mock cdn server
 - `npm run dev`
